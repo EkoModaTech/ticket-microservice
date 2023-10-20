@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  ticket-microservice:
+    build: .
+    container_name: ticket-microservice
+    hostname: ticket-microservice
+    ports:
+      - "4444:8080"
+    environment:
+      USERNAME_DATABASE: ${USERNAME_DATABASE}
+      PASSWORD_DATABASE: ${PASSWORD_DATABASE}
+      URL_EUREKA: ${URL_EUREKA}
+      IP_HOST: ${IP_HOST}
+      PORT_HOST: ${PORT_HOST}
+      URL_DATABASE: ${URL_DATABASE}
+
+  
+  ticket-microservice-qa:
+    build: .
+    container_name: ticket-microservice-qa
+    hostname: ticket-microservice-qa
+    ports:
+      - "24444:8080"
+    environment:
+      USERNAME_DATABASE: ${USERNAME_DATABASE}
+      PASSWORD_DATABASE: ${PASSWORD_DATABASE_QA}
+      URL_EUREKA: ${URL_EUREKA_QA}
+      IP_HOST: ${IP_HOST}
+      PORT_HOST: ${PORT_HOST_QA}
+      URL_DATABASE: ${URL_DATABASE_QA}
