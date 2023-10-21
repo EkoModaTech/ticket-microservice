@@ -95,7 +95,7 @@ public class TicketController {
 
     @DeleteMapping("/delete/{id}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<Void> deleteEvent(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteTicket(@PathVariable Long id) {
         try {
             Ticket ticket = ticketRepository.findById(id)
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Event not found"));
